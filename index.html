@@ -368,122 +368,126 @@
     </div>
   </div>
 
+<style>
 
-  <style>
+  .experience-logos {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 0 34px;
+    background: transparent;
+    color: #202020;
+  }
+
+  .experience-logos__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .experience-logos h2 {
+    margin: 0 0 24px;
+  }
+
+  .experience-logos__row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 28px;
+    row-gap: 12px;
+  }
+
+  .experience-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 32px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 4px;
+
+    color: #8a8a8a;
+    opacity: .78;
+
+    transition:
+      opacity 180ms ease,
+      color 180ms ease;
+  }
+
+  .experience-logo--wide {
+    width: 125px;
+  }
+
+  .experience-logo svg {
+    display: block;
+    width: 100%;
+    height: 32px;
+  }
+
+  .experience-logo:hover {
+    opacity: 1;
+    color: #333;
+  }
+
+  .experience-logo--fujifilm:hover {
+    color: #e60012;
+  }
+
+  @media (max-width: 700px) {
 
     .experience-logos {
-      width: 100%;
-      box-sizing: border-box;
-
-      /* Much tighter than the previous version */
-      padding: 30px 0 34px;
-
-      background: transparent;
-      color: #202020;
+      padding: 25px 0 30px;
     }
 
-    .experience-logos__inner {
-      max-width: 1180px;
-      margin: 0 auto;
+    .experience-logos h2 {
+      margin-bottom: 20px;
     }
-
-    /* Uses the site's normal H2 treatment */
-.experience-logos h2 {
-  margin-bottom: 24px;
-}
 
     .experience-logos__row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-
-      column-gap: 28px;
-      row-gap: 12px;
+      column-gap: 18px;
+      row-gap: 10px;
     }
 
     .experience-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 100px;
-      height: 32px;
-
-      color: #8a8a8a;
-      opacity: .78;
-
-      transition:
-        opacity 180ms ease,
-        color 180ms ease;
+      width: 90px;
+      height: 30px;
     }
 
     .experience-logo--wide {
-      width: 125px;
+      width: 110px;
     }
 
-    .experience-logo svg {
-      display: block;
-      width: 100%;
-      height: 32px;
+  }
+
+  @media (max-width: 480px) {
+
+    .experience-logos__row {
+      column-gap: 12px;
     }
 
-    .experience-logo:hover {
-      opacity: 1;
-      color: #333;
+    .experience-logo {
+      width: 82px;
+      height: 30px;
     }
 
-    .experience-logo--fujifilm:hover {
-      color: #e60012;
+    .experience-logo--wide {
+      width: 100px;
     }
 
-    @media (max-width: 700px) {
+  }
 
-      .experience-logos {
-        padding: 25px 0 30px;
-      }
+  @media (prefers-reduced-motion: reduce) {
 
-      .experience-logos h2 {
-        font-size: 28px;
-        margin-bottom: 20px;
-      }
-
-      .experience-logos__row {
-        column-gap: 18px;
-        row-gap: 10px;
-      }
-
-      .experience-logo {
-        width: 90px;
-      }
-
-      .experience-logo--wide {
-        width: 110px;
-      }
+    .experience-logo {
+      transition: none;
     }
 
-    @media (max-width: 480px) {
+  }
 
-      .experience-logos__row {
-        column-gap: 12px;
-      }
-
-      .experience-logo {
-        width: 82px;
-      }
-
-      .experience-logo--wide {
-        width: 100px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .experience-logo {
-        transition: none;
-      }
-    }
-
-  </style>
+</style>
 
 </section>
 
