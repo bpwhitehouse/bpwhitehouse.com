@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/discovery-demo",
+      "destination": "https://discovery-engine-plum-three.vercel.app/demo"
+    },
+    {
+      "source": "/discovery-demo/:path*",
+      "destination": "https://discovery-engine-plum-three.vercel.app/demo/:path*"
+    }
+  ]
+}
