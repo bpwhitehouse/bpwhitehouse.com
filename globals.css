@@ -212,9 +212,9 @@ h2 {
 
 /* High-contrast callout box */
 .impact-box {
-  background-color: #fbf9e5;  /* Soft Sky Blue background */
+  background-color: #e9fbe5;  /* Soft Sky Blue background */
   border-left: 4px solid var(--accent);
-  border: 1px solid #ffe600;
+  border: 1px solid #308f00;
   border-left-width: 4px;
   padding: 0.75rem 1rem;
   margin-top: 1rem;
