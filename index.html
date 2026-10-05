@@ -24,6 +24,27 @@
     Senior Product Manager with technical roots in full-stack architecture and AI systems. 
     Specialising in zero-to-one product strategy, semantic discovery engines, and scaling user-centric platforms.
   </p>
+
+    "use client";
+    import { useEffect, useState } from "react";
+
+    export default function ObfuscatedEmail() {
+      const [email, setEmail] = useState("");
+
+      useEffect(() => {
+        // Assembled at runtime so it never appears as plain text in the HTML source
+        setEmail(["hello", "bpwhitehouse.com"].join("@"));
+      }, []);
+
+      if (!email) return null;
+
+      return (
+        <a href={`mailto:${email}`} className="underline text-sm text-gray-700 hover:text-gray-900">
+          {email}
+        </a>
+      );
+    }
+
 </header>
 
 <section class="experience-logos" aria-labelledby="experience-logos-title">
