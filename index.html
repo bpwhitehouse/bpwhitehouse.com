@@ -3,617 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Benjamin Whitehouse | Portfolio</title>
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-
-  <style>
-    :root {
-      /* WCAG AAA/AA Compliant Light Palette */
-      --bg: #f8fafc;            /* Off-white background to prevent eye strain */
-      --card-bg: #ffffff;       /* Pure white card backgrounds */
-      --text: #0f172a;          /* Slate 900: High contrast text (Contrast > 15:1) */
-      --text-muted: #334155;    /* Slate 700: Readable secondary text (Contrast > 7:1) */
-      --accent: #0284c7;        /* Sky 600: Deep accessible blue (Contrast > 4.5:1) */
-      --accent-hover: #0369a1;  /* Sky 700: Darker blue hover */
-      --cta-green: #059669;     /* Emerald 600: Accessible green complement to blue (Contrast > 4.5:1) */
-      --cta-green-hover: #047857;/* Emerald 700: Darker green hover */
-      --border: #cbd5e1;        /* Slate 300: High clarity structural borders */
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Focus States for Keyboard Accessibility (WCAG 2.4.7) */
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-    }
-
-    header {
-      margin-bottom: 3rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    p.subtitle {
-      color: var(--accent);
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-
-    p.bio {
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.25rem;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 3px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.25rem;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
-    }
-
-    .project-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    /* WCAG AAA Compliant Tag Pills */
-    .tag {
-      background: #e0f2fe;     /* Light Sky Blue */
-      color: #0369a1;          /* Dark Sky Blue (Contrast > 7:1) */
-      border: 1px solid #7dd3fc;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    /* Primary Accent Button */
-    .btn-primary {
-      background-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .btn-primary:hover {
-      background-color: var(--accent-hover);
-      color: #ffffff;
-    }
-
-    /* Green CTA Button (Complementary Color for Demo) */
-    .btn-cta-green {
-      background-color: var(--cta-green);
-      color: #ffffff;          /* Contrast > 4.5:1 */
-    }
-
-    .btn-cta-green:hover {
-      background-color: var(--cta-green-hover);
-      color: #ffffff;
-    }
-
-    .btn-secondary {
-      background-color: #f1f5f9;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      background-color: #e2e8f0;
-      color: #000000;
-    }
-
-    /* High-contrast callout box */
-    .impact-box {
-      background-color: #f0f9ff;  /* Soft Sky Blue background */
-      border-left: 4px solid var(--accent);
-      border: 1px solid #bae6fd;
-      border-left-width: 4px;
-      padding: 0.75rem 1rem;
-      margin-top: 1rem;
-      border-radius: 0 6px 6px 0;
-    }
-
-    .impact-box p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #0c4a6e;
-      font-weight: 600;
-    }
-
-    .impact-box strong {
-      color: var(--accent-hover);
-    }
-
-    /* Experience logos styling */
-    .experience-logos {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 20px 0 30px;
-      background: transparent;
-    }
-
-    .experience-logos__inner {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .experience-logos h2 {
-      margin: 0 0 20px;
-    }
-
-    .experience-logos__row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      column-gap: 28px;
-      row-gap: 12px;
-    }
-
-    .experience-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      height: 32px;
-      padding: 4px 8px;
-      box-sizing: border-box;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: #0f172a;
-      opacity: 0.95;
-      transition: opacity 180ms ease, color 180ms ease, border-color 180ms ease;
-    }
-
-    .experience-logo--wide {
-      width: 125px;
-    }
-
-    .experience-logo svg {
-      display: block;
-      width: 100%;
-      height: 32px;
-      fill: currentColor;
-    }
-
-    .experience-logo:hover {
-      opacity: 1;
-      color: #000000;
-      border-color: var(--accent);
-    }
-
-    .experience-logo--fujifilm:hover {
-      color: #e60012;
-      border-color: #e60012;
-    }
-
-    @media (max-width: 700px) {
-      .experience-logos__row {
-        column-gap: 18px;
-        row-gap: 10px;
-      }
-      .experience-logo {
-        width: 90px;
-        height: 30px;
-      }
-      .experience-logo--wide {
-        width: 110px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .experience-logos__row {
-        column-gap: 12px;
-      }
-      .experience-logo {
-        width: 82px;
-        height: 30px;
-      }
-      .experience-logo--wide {
-        width: 100px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .experience-logo, .project-card, .btn {
-        transition: none;
-      }
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 4rem;
-      border-top: 2px solid var(--border);
-      padding-top: 1.5rem;
-    }
-  </style>
+  <title>Portfolio - Projects</title>
+  <link rel="stylesheet" href="/globals.css">
 </head>
 <body>
 
-<header>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-    <h1 style="margin: 0;">Benjamin Whitehouse</h1>
-    <div class="links" style="margin: 0;">
-      <a href="https://www.linkedin.com/in/bpwhitehouse" target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn</a>
-    </div>
-  </div>
-  
-  <p class="subtitle">Product Leader · AI Strategy · Full-Stack Foundations</p>
-  <p class="bio">
-    Senior Product Manager with technical roots in full-stack architecture and AI systems. 
-    Specialising in zero-to-one product strategy, semantic discovery engines, and scaling user-centric platforms.
-  </p>
-</header>
+  <main class="container">
+    <section class="projects-grid">
 
-<section class="experience-logos" aria-labelledby="experience-logos-title">
-  <div class="experience-logos__inner">
-    <h2 id="experience-logos-title">Selected organisations &amp; brands</h2>
-    <div class="experience-logos__row">
+      <!-- Project 1: Discovery Demo -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-    <!-- FUJIFILM -->
-    <div class="experience-logo experience-logo--fujifilm" aria-label="Fujifilm">
-      <svg viewBox="0 0 140 36" role="img">
-        <circle cx="12" cy="18" r="7" fill="#00a651"/>
-        <text x="78" y="24" text-anchor="middle"
-              font-family="Arial, Helvetica, sans-serif"
-              font-size="17" font-weight="700"
-              letter-spacing="-1">FUJIFILM</text>
-      </svg>
-    </div>
+        <div class="project-card__content">
+          <h3>Discovery Demo</h3>
+          <p>AI Concept Matching & Structured CMS Retrieval</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Reduced query retrieval latency to under 85ms while achieving high-accuracy concept matching across structured CMS content.</p>
+          </div>
 
-      <!-- AMP -->
-      <div class="experience-logo" aria-label="AMP Bank">
-        <svg viewBox="0 0 110 36" role="img">
-          <text x="55" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="-1">AMP Bank</text>
-        </svg>
-      </div>
+          <div class="links">
+            <a href="/discovery-demo" target="_blank" rel="noopener noreferrer" class="btn btn-cta-green">
+              <span>Try the demo!</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
 
-      <!-- FRONTIERS -->
-      <div class="experience-logo" aria-label="Frontiers">
-        <svg viewBox="0 0 135 36" role="img">
-          <text x="67.5" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600">Frontiers Media</text>
-        </svg>
-      </div>
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-      <!-- NURTURE UK -->
-      <div class="experience-logo" aria-label="nurtureuk">
-        <svg viewBox="0 0 140 36" role="img">
-          <text x="70" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="600">nurtureuk</text>
-        </svg>
-      </div>
+        <div class="project-card__content">
+          <h3>Digital Centre of Excellence</h3>
+          <p>Global Architecture & Web Operations Consolidation</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Consolidated global web architectures into a single Digital Centre of Excellence, drastically reducing stack complexity and operational overhead.</p>
+          </div>
+        </div>
+      </article>
 
-      <!-- RESEARCH IN PRACTICE -->
-      <div class="experience-logo experience-logo--wide" aria-label="Research in Practice">
-        <svg viewBox="0 0 175 36" role="img">
-          <text x="87.5" y="15" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" letter-spacing="1.2">RESEARCH IN</text>
-          <text x="87.5" y="27" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">PRACTICE</text>
-        </svg>
-      </div>
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-      <!-- ALLIANCE PHARMA -->
-      <div class="experience-logo experience-logo--wide" aria-label="Alliance Pharma">
-        <svg viewBox="0 0 165 36" role="img">
-          <text x="82.5" y="15" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="1">ALLIANCE</text>
-          <text x="82.5" y="27" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" letter-spacing="1.6">PHARMA</text>
-        </svg>
-      </div>
+        <div class="project-card__content">
+          <h3>Product Growth Facilitation</h3>
+          <p>Zero-to-One Product Facilitation</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Zero-to-one product facilitation, increased user value and improved subscription retention.</p>
+          </div>
+        </div>
+      </article>
 
-      <!-- KELO-COTE -->
-      <div class="experience-logo" aria-label="Kelo-Cote">
-        <svg viewBox="0 0 135 36" role="img">
-          <text x="67.5" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">KELO-COTE</text>
-        </svg>
-      </div>
+      <!-- Project 4 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-      <!-- BROADSIGN -->
-      <div class="experience-logo" aria-label="Broadsign">
-        <svg viewBox="0 0 140 36" role="img">
-          <text x="70" y="24" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">Broadsign Canada</text>
-        </svg>
-      </div>
+        <div class="project-card__content">
+          <h3>Automated Risk Triage</h3>
+          <p>Human-Validated AI Signals & Intake Workflow</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Accelerated intake velocity and eliminated major downstream processing bottlenecks through automated risk triage and human-validated AI signals.</p>
+          </div>
+        </div>
+      </article>
 
-      <!-- NHS -->
-      <div class="experience-logo" aria-label="NHS">
-        <svg viewBox="0 0 85 36" role="img">
-          <rect x="8" y="7" width="69" height="22" rx="1" fill="#005eb8"/>
-          <text x="42.5" y="23" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="900" fill="#ffffff">NHS</text>
-        </svg>
-      </div>
+      <!-- Project 5 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-      <!-- UNIVERSITY OF BRISTOL -->
-      <div class="experience-logo experience-logo--wide" aria-label="University of Bristol">
-        <svg viewBox="0 0 170 36" role="img">
-          <text x="85" y="14" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="600" letter-spacing=".7">UNIVERSITY OF</text>
-          <text x="85" y="27" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">BRISTOL</text>
-        </svg>
-      </div>
+        <div class="project-card__content">
+          <h3>Legacy Platform Modernization</h3>
+          <p>System Consolidation & Agile Practice Integration</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Merged two legacy systems into one unified product ecosystem, driving higher user engagement and embedding modern Agile product delivery practices.</p>
+          </div>
+        </div>
+      </article>
 
-      <!-- KINZO -->
-      <div class="experience-logo" aria-label="KINZO Architekten">
-        <svg viewBox="0 0 115 36" role="img">
-          <text x="57.5" y="16" text-anchor="middle"
-                font-family="Arial, Helvetica, sans-serif"
-                font-size="18" font-weight="800"
-                letter-spacing="2" fill="red">KINZO</text>
-          <text x="57.5" y="29" text-anchor="middle"
-                font-family="Arial, Helvetica, sans-serif"
-                font-size="9" font-weight="600"
-                letter-spacing="1" fill="#000000">ARCHITEKTEN</text>
-        </svg>
-      </div>
+      <!-- Project 6 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-    </div>
-  </div>
-</section>
+        <div class="project-card__content">
+          <h3>Open-Source Transformation</h3>
+          <p>Knowledge Sharing Platform</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Replaced costly proprietary software with an open-source platform, driving global knowledge sharing while cutting software licensing overheads.</p>
+          </div>
+        </div>
+      </article>
 
-<section>
-  <h2>Featured Projects</h2>
+      <!-- Project 7 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-  <div class="project-card">
-    <div class="project-title">Beyond Keyword Search: An AI Discovery Demo</div>
-    <div class="project-desc">
-	    I built an AI-powered semantic search demo (Next.js, OpenAI, Pinecone) because I wanted to understand what it could do for catalogue-heavy products. It understands the meaning behind a query and returns the most relevant results in real time.
-    </div>
-    <div class="tags">
-      <span class="tag">Retrieval-Augmented Generation (RAG)</span>
-      <span class="tag">AI Vector Search &amp; Embeddings</span>
-      <span class="tag">Pinecone Vector Database</span>
-      <span class="tag">Sanity Headless CMS</span>
-      <span class="tag">Next.js App Router</span>
-    </div>
+        <div class="project-card__content">
+          <h3>Digital Network Deployment</h3>
+          <p>Executive Stakeholder & Engineering Alignment</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Secured C-suite buy-in and unlocked multi-million-pound digital network deployments by bridging complex engineering features with executive stakeholder needs.</p>
+          </div>
+        </div>
+      </article>
 
-    <div class="links">
-      <a href="/discovery-demo" target="_blank" rel="noopener noreferrer" class="btn btn-cta-green">
-        <span>Try the demo!</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <line x1="10" y1="14" x2="21" y2="3"></line>
-        </svg>
-      </a>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Reduced query retrieval latency to under 85ms while achieving high-accuracy concept matching across structured CMS content.</p>
-    </div>
-  </div>
+      <!-- Project 8 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-  <div class="project-card">
-    <div class="project-title">Global Digital Transformation &amp; MarTech Standardisation</div>
-    <div class="project-desc">
-      Led global tech consolidation into a central Digital Centre of Excellence, unifying web assets, MarTech, and DAM/CDN infrastructure. </div>
-    <div class="tags">
-      <span class="tag">Global Tech Leadership</span>
-      <span class="tag">Digital Center of Excellence</span>
-      <span class="tag">MarTech Strategy</span>
-      <span class="tag">DAM &amp; Content Delivery</span>
-      <span class="tag">Stack Harmonisation</span>
-    </div>
+        <div class="project-card__content">
+          <h3>Clinical Network Diagnostics</h3>
+          <p>European Healthcare Network Workflows</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Modernized diagnostic workflows across European clinical networks, securing patient data access and cutting imaging delivery time.</p>
+          </div>
+        </div>
+      </article>
 
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Consolidated global web architectures into a single Digital Centre of Excellence, drastically reducing stack complexity and operational overhead.</p>
-    </div>
-  </div>
+      <!-- Project 9 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-  <div class="project-card">
-    <div class="project-title">EdTech Assessment &amp; Intervention Platform Innovation</div>
-    <div class="project-desc">
-      Modernised a nationwide social-emotional learning platform - closing a continuity gap, adding a new upsell lever, and scaling access across schools.</div>
-    <div class="tags">
-      <span class="tag">EdTech &amp; SEL Platforms</span>
-      <span class="tag">Product Modernisation</span>
-      <span class="tag">Assessment Workflows</span>
-      <span class="tag">Scaling B2B SaaS</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Zero-to-one product facilitation, increased user value and improved subscription retention.</p>
-    </div>
-  </div>
+        <div class="project-card__content">
+          <h3>Critical Medical Records System</h3>
+          <p>Zero-Bandwidth Patient Data Access</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Ensured 100% uptime and instant access to vital patient records for flight doctors operating in zero-bandwidth environments.</p>
+          </div>
+        </div>
+      </article>
 
-  <div class="project-card">
-    <div class="project-title">AI-Assisted Workflow &amp; Intake Transformation</div>
-    <div class="project-desc">
-      Modernised a manuscript intake portal with AI-assisted triage and human-in-the-loop validation, cutting friction and downstream delays.</div>
-    <div class="tags">
-      <span class="tag">AI Triage &amp; Risk Signals</span>
-      <span class="tag">Human-in-the-Loop AI</span>
-      <span class="tag">Intake &amp; Funnel Optimisation</span>
-      <span class="tag">UX &amp; User Research</span>
-      <span class="tag">Process Efficiency</span>
-    </div>
+      <!-- Project 10 -->
+      <article class="project-card">
+        <div class="project-badges">
+          <span class="badge badge--primary">Primary</span>
+          <span class="badge badge--secondary">Secondary</span>
+        </div>
 
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Accelerated intake velocity and eliminated major downstream processing bottlenecks through automated risk triage and human-validated AI signals.</p>
-    </div>
-  </div>
+        <div class="project-card__content">
+          <h3>Commercial Business & Government Contracting</h3>
+          <p>Creative Culture & Public Sector Engagement</p>
+          
+          <div class="impact-box">
+            <p><strong>Impact:</strong> Built a self-sustaining commercial business delivering government contracts while fostering local creative culture.</p>
+          </div>
+        </div>
+      </article>
 
-  <div class="project-card">
-    <div class="project-title">Platform Consolidation &amp; Agile Practice Modernisation</div>
-    <div class="project-desc">
-      Consolidated two legacy platforms into one product for the social justice sector, leading IA, UX, and Agile delivery.</div>
-    <div class="tags">
-      <span class="tag">Platform Consolidation</span>
-      <span class="tag">Taxonomy &amp; IA</span>
-      <span class="tag">Agile Coaching &amp; Scrum</span>
-      <span class="tag">CMS Architecture</span>
-      <span class="tag">Social Justice Sector</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Merged two legacy systems into one unified product ecosystem, driving higher user engagement and embedding modern Agile product delivery practices.</p>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-title">Open-Source Knowledge Platform &amp; Cultural Transformation</div>
-    <div class="project-desc">
-      Built an open-source knowledge platform for a Berlin architecture firm, replacing fragmented systems with global, self-service collaboration.</div>
-    <div class="tags">
-      <span class="tag">Knowledge Management</span>
-      <span class="tag">Open-Source Stack</span>
-      <span class="tag">System Consolidation</span>
-      <span class="tag">Mobile Security &amp; UX</span>
-      <span class="tag">Change Management</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Replaced costly proprietary software with an open-source platform, driving global knowledge sharing while cutting software licensing overheads.</p>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-title">Enterprise Product Specialist &amp; High-Stakes Beta Demos</div>
-    <div class="project-desc">
-      Bridged engineering and executive buyers for a global digital signage platform, turning beta features into demos that won multi-million-pound deals.</div>
-    <div class="tags">
-      <span class="tag">Technical Product Specialist</span>
-      <span class="tag">Beta Feature Rollouts</span>
-      <span class="tag">Executive Demos &amp; Stakeholders</span>
-      <span class="tag">Engineering &amp; Sales Alignment</span>
-      <span class="tag">Enterprise Digital Signage</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Secured C-suite buy-in and unlocked multi-million-pound digital network deployments by bridging complex engineering features with executive stakeholder needs.</p>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-title">Enterprise Medical Imaging &amp; PACS Integration</div>
-    <div class="project-desc">
-      Deployed and integrated PACS imaging systems across European healthcare providers, bridging legacy hospital IT with modern platforms.</div>
-    <div class="tags">
-      <span class="tag">Healthcare IT &amp; PACS</span>
-      <span class="tag">Enterprise Digital Imaging</span>
-      <span class="tag">Multi-Vendor Integration</span>
-      <span class="tag">European Deployment</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Modernized diagnostic workflows across European clinical networks, securing patient data access and cutting imaging delivery time.</p>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-title">Remote Healthcare Systems &amp; Rural Data Accessibility</div>
-    <div class="project-desc">
-      Rolled out a patient information system across remote Australian healthcare networks, enabling reliable offline/online sync for emergency teams.</div>
-    <div class="tags">
-      <span class="tag">Healthcare IT &amp; EMR</span>
-      <span class="tag">Remote Systems Rollout</span>
-      <span class="tag">Aeromedical Operations</span>
-      <span class="tag">Data Synchronization</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Ensured 100% uptime and instant access to vital patient records for flight doctors operating in zero-bandwidth environments.</p>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-title">Music Studio Venture: Founded, Grew, Exited</div>
-    <div class="project-desc">
-      Founded and built a Bristol community music and production studio, delivering government and local client work — sold at a profit in year three.</div>
-    <div class="tags">
-      <span class="tag">Studio Operations &amp; Delivery</span>
-      <span class="tag">Commercial Media Production</span>
-      <span class="tag">Government Clients</span>
-      <span class="tag">Ecosystem Building</span>
-    </div>
-    
-    <div class="impact-box">
-      <p><strong>Impact:</strong> Built a self-sustaining commercial business delivering government contracts while fostering local creative culture.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Benjamin Whitehouse. </p>
-</footer>
+    </section>
+  </main>
 
 </body>
 </html>
