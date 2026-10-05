@@ -25,25 +25,18 @@
     Specialising in zero-to-one product strategy, semantic discovery engines, and scaling user-centric platforms.
   </p>
 
-    "use client";
-    import { useEffect, useState } from "react";
+  <a id="contact-email" href="#" class="btn btn-secondary">Email</a>
 
-    export default function ObfuscatedEmail() {
-      const [email, setEmail] = useState("");
-
-      useEffect(() => {
-        // Assembled at runtime so it never appears as plain text in the HTML source
-        setEmail(["hello", "bpwhitehouse.com"].join("@"));
-      }, []);
-
-      if (!email) return null;
-
-      return (
-        <a href={`mailto:${email}`} className="underline text-sm text-gray-700 hover:text-gray-900">
-          {email}
-        </a>
-      );
-    }
+  <script>
+    (function () {
+      const user = "hello";
+      const domain = "bpwhitehouse.com";
+      const email = user + "@" + domain;
+      const link = document.getElementById("contact-email");
+      link.href = "mailto:" + email;
+      link.textContent = email;
+    })();
+  </script>
 
 </header>
 
