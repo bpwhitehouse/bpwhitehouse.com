@@ -132,6 +132,7 @@ h2 {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--text);
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
   padding-right: 120px; /* Leave space for top-right badges */
 }
