@@ -16,6 +16,17 @@
     <h1 style="margin: 0;">Benjamin Whitehouse</h1>
     <div class="links" style="margin: 0;">
       <a href="https://www.linkedin.com/in/bpwhitehouse" target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn</a>
+        <a id="contact-email" href="#" class="btn btn-secondary">Email</a>
+        <script>
+          (function () {
+            const user = "hello";
+            const domain = "bpwhitehouse.com";
+            const email = user + "@" + domain;
+            const link = document.getElementById("contact-email");
+            link.href = "mailto:" + email;
+            link.textContent = email;
+          })();
+        </script>
     </div>
   </div>
   
@@ -24,19 +35,6 @@
     Senior Product Manager with technical roots in full-stack architecture and AI systems. 
     Specialising in zero-to-one product strategy, semantic discovery engines, and scaling user-centric platforms.
   </p>
-
-  <a id="contact-email" href="#" class="btn btn-secondary">Email</a>
-
-  <script>
-    (function () {
-      const user = "hello";
-      const domain = "bpwhitehouse.com";
-      const email = user + "@" + domain;
-      const link = document.getElementById("contact-email");
-      link.href = "mailto:" + email;
-      link.textContent = email;
-    })();
-  </script>
 
 </header>
 
