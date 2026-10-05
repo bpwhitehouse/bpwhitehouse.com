@@ -152,9 +152,8 @@ h2 {
 
 /* WCAG AAA Compliant Tag Pills */
 .tag {
-  background: #e0f2fe;     /* Light Sky Blue */
-  color: #0369a1;          /* Dark Sky Blue (Contrast > 7:1) */
-  border: 1px solid #7dd3fc;
+  background: #eceded;     /* Light Sky Blue */
+  color: #414141;          /* Dark Sky Blue (Contrast > 7:1) */
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -213,9 +212,9 @@ h2 {
 
 /* High-contrast callout box */
 .impact-box {
-  background-color: #f0f9ff;  /* Soft Sky Blue background */
+  background-color: #fbf9e5;  /* Soft Sky Blue background */
   border-left: 4px solid var(--accent);
-  border: 1px solid #bae6fd;
+  border: 1px solid #ffe600;
   border-left-width: 4px;
   padding: 0.75rem 1rem;
   margin-top: 1rem;
@@ -231,6 +230,7 @@ h2 {
 
 .impact-box strong {
   color: var(--accent-hover);
+  font-size: 1.2rem;
 }
 
 /* Experience logos styling */
